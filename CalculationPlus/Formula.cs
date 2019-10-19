@@ -71,7 +71,10 @@ public class Formula
     }
     public string getTop()
     {
-        return formulaStr[formulaStr.Count - 1];
+        if (formulaStr.Count > 0)
+            return formulaStr[formulaStr.Count - 1];
+        else
+            return null;
     }
 
     private int GetCharNumInList(char a, List<char> list)

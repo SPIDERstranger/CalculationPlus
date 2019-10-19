@@ -11,14 +11,13 @@ using CalculationPlus;
 namespace CalculationPlus
 {
 
-    public enum InputState 
+    public enum InputState
     {
         Start,
         Num,
         DotNum,
         FinalNum,
         Operation,
-        Function,
     }
 
 
@@ -102,12 +101,23 @@ namespace CalculationPlus
         {
             Formula.Instance.BackStr();
             SetInputBoxText(Formula.Instance.ToString());
-            string top = Formula.Instance.getTop();
-            stateStack.Pop();
-            state = stateStack.Peek();
+            //if (stateStack.Count > 1)
+            //{
+            //    stateStack.Pop();
+            //    state = stateStack.Peek();
+            //}
+            //else
+            //{
+            //    state = InputState.Start;
+            //}
+            if(stateStack.Count>1)
+                stateStack.Pop();
+            state  = stateStack.Peek();
+            Console.WriteLine("pop after : state count "+stateStack.Count +" : "+ state);
         }
         private void UpdateState(InputState state)
         {
+            Console.WriteLine("pushStack : " + state);
             this.state = state;
             stateStack.Push(state);
         }
@@ -130,8 +140,14 @@ namespace CalculationPlus
             panelHis.AutoScrollPosition = new Point(0, 0);
             Formula.Instance.Clear();
         }
+        private void ClearStateStack()
+        {
+            stateStack.Clear();
+            UpdateState(InputState.Start);
+        }
         private void ClearInputBox()
         {
+            ClearStateStack();
             inputBox.Font = new Font("Microsoft Sans Serif", 36F);
             SetInputBoxText();
             Formula.Instance.Clear();
@@ -164,29 +180,7 @@ namespace CalculationPlus
             bool result = false;
             switch (state)
             {
-                case InputState.Start: 
-                    if (Formula.IsNumber(str)&&str !=".")
-                    {
-                        result = true;
-                        UpdateState(InputState.Num);
-                    }
-                    else if (Formula.IsSpNumber(str[0]))
-                    {
-                        result = true;
-                        UpdateState(InputState.FinalNum);
-                    }
-                    else if (Formula.IsFuntion(str))
-                    {
-                        result = true;
-                        UpdateState(InputState.Function);
-                    }
-                    else if (str == "(")
-                    {
-                        result = true;
-                        UpdateState(InputState.Start);
-                    }
-                    break;
-                case InputState.Function: // todo 类似 start 可以考虑删除 function状态
+                case InputState.Start:
                     if (Formula.IsNumber(str) && str != ".")
                     {
                         result = true;
@@ -200,20 +194,23 @@ namespace CalculationPlus
                     else if (Formula.IsFuntion(str))
                     {
                         result = true;
-                        UpdateState(InputState.Function);
+                        UpdateState(InputState.Start);
                     }
-                    else if (str == "(")// 待考证
+                    else if (str == "(")
                     {
                         result = true;
                         UpdateState(InputState.Start);
                     }
                     break;
-                case InputState.Num: 
+
+                case InputState.Num:
                     if (Formula.IsNumber(str))
                     {
                         result = true;
                         if (str == ".")
                             UpdateState(InputState.DotNum);
+                        else
+                            UpdateState(InputState.Num);
                     }
                     else if (Formula.IsOperation(str))
                     {
@@ -225,7 +222,7 @@ namespace CalculationPlus
                         result = true;
                         UpdateState(InputState.FinalNum);
                     }
-                    else if(str==")"&&!Formula.CheckBracePair(inputBox.Text))
+                    else if (str == ")" && !Formula.CheckBracePair(inputBox.Text))
                     {
                         result = true;
                         UpdateState(InputState.FinalNum);
@@ -243,7 +240,7 @@ namespace CalculationPlus
                         result = true;
                         UpdateState(InputState.Operation);
                     }
-                    else if (Formula.IsBackOperation(str[0])) 
+                    else if (Formula.IsBackOperation(str[0]))
                     {
                         result = true;
                         UpdateState(InputState.FinalNum);
@@ -273,28 +270,28 @@ namespace CalculationPlus
                     }
                     break;
 
-                case InputState.Operation: 
-                    if(Formula.IsNumber(str))
+                case InputState.Operation:
+                    if (Formula.IsNumber(str))
                     {
                         result = true;
                         UpdateState(InputState.Num);
                     }
-                    else if(Formula.IsSpNumber(str[0]))
+                    else if (Formula.IsSpNumber(str[0]))
                     {
                         result = true;
                         UpdateState(InputState.FinalNum);
                     }
-                    else if(Formula.IsFuntion(str))
+                    else if (Formula.IsFuntion(str))
                     {
                         result = true;
-                        UpdateState(InputState.Function);
+                        UpdateState(InputState.Start);
                     }
                     else if (str == "(")
                     {
                         result = true;
                         UpdateState(InputState.Start);
                     }
-                    
+
                     break;
             }
             return result;
@@ -318,7 +315,7 @@ namespace CalculationPlus
             }
             if (!CorrectInput(ipt))
                 return;
-             if (Formula.IsOperation(ipt)) // 修改 加进CorrectInput（）
+            if (Formula.IsOperation(ipt)) // 修改 加进CorrectInput（）
             {
                 if (inputBox.Text.Length == 0)
                     ipt = "0" + ipt;
@@ -333,6 +330,7 @@ namespace CalculationPlus
 
             if (AddInputBoxText(ipt))
             {
+                Console.WriteLine("stateStackCount:" + stateStack.Count);
                 Formula.Instance.AddStr(ipt);
                 UpdateAcBtnText();
             }
