@@ -1,7 +1,176 @@
-﻿namespace CalculationPlus
+﻿//-----------------------------------------------------------------------
+// <copyright file="FormCal.Designer.cs" company="none">
+//     Copyright (c) Sprocket Enterprises. All rights reserved.
+// </copyright>
+// <author>Lin jiawei</author>
+//-----------------------------------------------------------------------
+namespace CalculationPlus
 {
-    partial class FormCal
+    /// <summary>
+    /// 计算器界面
+    /// </summary>
+   public partial class FormCal
     {
+        /// <summary>
+        /// sin按键
+        /// </summary>
+        private System.Windows.Forms.Button btnSin;
+
+        /// <summary>
+        /// add按键
+        /// </summary>
+        private System.Windows.Forms.Button btnAdd;
+
+        /// <summary>
+        /// 3按键
+        /// </summary>
+        private System.Windows.Forms.Button btn3;
+
+        /// <summary>
+        /// 2按键
+        /// </summary>
+        private System.Windows.Forms.Button btn2;
+
+        /// <summary>
+        /// 1按键
+        /// </summary>
+        private System.Windows.Forms.Button btn1;
+
+        /// <summary>
+        /// cos按键
+        /// </summary>
+        private System.Windows.Forms.Button btnCos;
+
+        /// <summary>
+        /// minus按键
+        /// </summary>
+        private System.Windows.Forms.Button btnMinus;
+
+        /// <summary>
+        /// 6按键
+        /// </summary>
+        private System.Windows.Forms.Button btn6;
+
+        /// <summary>
+        /// 5按键
+        /// </summary>
+        private System.Windows.Forms.Button btn5;
+
+        /// <summary>
+        /// 4按键
+        /// </summary>
+        private System.Windows.Forms.Button btn4;
+
+        /// <summary>
+        /// tan按键
+        /// </summary>
+        private System.Windows.Forms.Button btnTan;
+
+        /// <summary>
+        /// mult按键
+        /// </summary>
+        private System.Windows.Forms.Button btnMult;
+
+        /// <summary>
+        /// 9按键
+        /// </summary>
+        private System.Windows.Forms.Button btn9;
+
+        /// <summary>
+        /// 8按键
+        /// </summary>
+        private System.Windows.Forms.Button btn8;
+
+        /// <summary>
+        /// 7按键
+        /// </summary>
+        private System.Windows.Forms.Button btn7;
+
+        /// <summary>
+        /// E
+        /// </summary>
+        private System.Windows.Forms.Button btnE;
+
+        /// <summary>
+        /// equal按键
+        /// </summary>
+        private System.Windows.Forms.Button btnEqual;
+
+        /// <summary>
+        /// dot按键
+        /// </summary>
+        private System.Windows.Forms.Button btnDot;
+
+        /// <summary>
+        /// 0按键
+        /// </summary>
+        private System.Windows.Forms.Button btn0;
+
+        /// <summary>
+        /// divi按键
+        /// </summary>
+        private System.Windows.Forms.Button btnDivi;
+
+        /// <summary>
+        /// precent按键
+        /// </summary>
+        private System.Windows.Forms.Button btnPrecent;
+
+        /// <summary>
+        /// bs按键
+        /// </summary>
+        private System.Windows.Forms.Button btnBS;
+
+        /// <summary>
+        /// ac按键
+        /// </summary>
+        private System.Windows.Forms.Button btnAC;
+
+        /// <summary>
+        /// pi按键
+        /// </summary>
+        private System.Windows.Forms.Button btnPi;
+
+        /// <summary>
+        /// sqrt按键
+        /// </summary>
+        private System.Windows.Forms.Button btnSqrt;
+
+        /// <summary>
+        /// lg按键
+        /// </summary>
+        private System.Windows.Forms.Button btnLg;
+
+        /// <summary>
+        /// ln按键
+        /// </summary>
+        private System.Windows.Forms.Button btnLn;
+
+        /// <summary>
+        /// rightBrace按键
+        /// </summary>
+        private System.Windows.Forms.Button btnRBrace;
+
+        /// <summary>
+        /// leftBrace按键
+        /// </summary>
+        private System.Windows.Forms.Button btnLBrace;
+
+        /// <summary>
+        /// 历史记录列表容器
+        /// </summary>
+        private System.Windows.Forms.Panel panelHis;
+
+        /// <summary>
+        /// 历史记录列表
+        /// </summary>
+        private System.Windows.Forms.Label labelHis;
+
+        /// <summary>
+        /// 输入框
+        /// </summary>
+        private System.Windows.Forms.Label inputBox;
+
         /// <summary>
         /// 必需的设计器变量。
         /// </summary>
@@ -17,6 +186,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -28,6 +198,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCal));
             this.btnSin = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -82,7 +253,7 @@
             this.btnSin.TabIndex = 0;
             this.btnSin.Text = "sin";
             this.btnSin.UseVisualStyleBackColor = false;
-            this.btnSin.Click += new System.EventHandler(this.btnSin_Click);
+            this.btnSin.Click += new System.EventHandler(this.BtnSin_Click);
             // 
             // btnAdd
             // 
@@ -102,7 +273,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "＋";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btn3
             // 
@@ -122,7 +293,7 @@
             this.btn3.TabIndex = 12;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = false;
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            this.btn3.Click += new System.EventHandler(this.Btn3_Click);
             // 
             // btn2
             // 
@@ -142,7 +313,7 @@
             this.btn2.TabIndex = 11;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.btn2.Click += new System.EventHandler(this.Btn2_Click);
             // 
             // btn1
             // 
@@ -162,7 +333,7 @@
             this.btn1.TabIndex = 10;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // btnCos
             // 
@@ -183,7 +354,7 @@
             this.btnCos.TabIndex = 9;
             this.btnCos.Text = "cos";
             this.btnCos.UseVisualStyleBackColor = false;
-            this.btnCos.Click += new System.EventHandler(this.btnCos_Click);
+            this.btnCos.Click += new System.EventHandler(this.BtnCos_Click);
             // 
             // btnMinus
             // 
@@ -203,7 +374,7 @@
             this.btnMinus.TabIndex = 18;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = false;
-            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
+            this.btnMinus.Click += new System.EventHandler(this.BtnMinus_Click);
             // 
             // btn6
             // 
@@ -223,7 +394,7 @@
             this.btn6.TabIndex = 17;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = false;
-            this.btn6.Click += new System.EventHandler(this.btn6_Click);
+            this.btn6.Click += new System.EventHandler(this.Btn6_Click);
             // 
             // btn5
             // 
@@ -243,7 +414,7 @@
             this.btn5.TabIndex = 16;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = false;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            this.btn5.Click += new System.EventHandler(this.Btn5_Click);
             // 
             // btn4
             // 
@@ -263,7 +434,7 @@
             this.btn4.TabIndex = 15;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = false;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.btn4.Click += new System.EventHandler(this.Btn4_Click);
             // 
             // btnTan
             // 
@@ -284,7 +455,7 @@
             this.btnTan.TabIndex = 14;
             this.btnTan.Text = "tan";
             this.btnTan.UseVisualStyleBackColor = false;
-            this.btnTan.Click += new System.EventHandler(this.btnTan_Click);
+            this.btnTan.Click += new System.EventHandler(this.BtnTan_Click);
             // 
             // btnMult
             // 
@@ -304,7 +475,7 @@
             this.btnMult.TabIndex = 23;
             this.btnMult.Text = "×";
             this.btnMult.UseVisualStyleBackColor = false;
-            this.btnMult.Click += new System.EventHandler(this.btnMult_Click);
+            this.btnMult.Click += new System.EventHandler(this.BtnMult_Click);
             // 
             // btn9
             // 
@@ -324,7 +495,7 @@
             this.btn9.TabIndex = 22;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = false;
-            this.btn9.Click += new System.EventHandler(this.btn9_Click);
+            this.btn9.Click += new System.EventHandler(this.Btn9_Click);
             // 
             // btn8
             // 
@@ -344,7 +515,7 @@
             this.btn8.TabIndex = 21;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = false;
-            this.btn8.Click += new System.EventHandler(this.btn8_Click);
+            this.btn8.Click += new System.EventHandler(this.Btn8_Click);
             // 
             // btn7
             // 
@@ -364,7 +535,7 @@
             this.btn7.TabIndex = 20;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = false;
-            this.btn7.Click += new System.EventHandler(this.btn7_Click);
+            this.btn7.Click += new System.EventHandler(this.Btn7_Click);
             // 
             // btnE
             // 
@@ -385,7 +556,7 @@
             this.btnE.TabIndex = 24;
             this.btnE.Text = "e";
             this.btnE.UseVisualStyleBackColor = false;
-            this.btnE.Click += new System.EventHandler(this.btnE_Click);
+            this.btnE.Click += new System.EventHandler(this.BtnE_Click);
             // 
             // btnEqual
             // 
@@ -405,7 +576,7 @@
             this.btnEqual.TabIndex = 32;
             this.btnEqual.Text = "=";
             this.btnEqual.UseVisualStyleBackColor = false;
-            this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
+            this.btnEqual.Click += new System.EventHandler(this.BtnEqual_Click);
             // 
             // btnDot
             // 
@@ -425,7 +596,7 @@
             this.btnDot.TabIndex = 31;
             this.btnDot.Text = ".";
             this.btnDot.UseVisualStyleBackColor = false;
-            this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
+            this.btnDot.Click += new System.EventHandler(this.BtnDot_Click);
             // 
             // btn0
             // 
@@ -445,7 +616,7 @@
             this.btn0.TabIndex = 29;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = false;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
+            this.btn0.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btnDivi
             // 
@@ -465,7 +636,7 @@
             this.btnDivi.TabIndex = 36;
             this.btnDivi.Text = "÷";
             this.btnDivi.UseVisualStyleBackColor = false;
-            this.btnDivi.Click += new System.EventHandler(this.btnDivi_Click);
+            this.btnDivi.Click += new System.EventHandler(this.BtnDivi_Click);
             // 
             // btnPrecent
             // 
@@ -485,7 +656,7 @@
             this.btnPrecent.TabIndex = 35;
             this.btnPrecent.Text = "％";
             this.btnPrecent.UseVisualStyleBackColor = false;
-            this.btnPrecent.Click += new System.EventHandler(this.btnPrecent_Click);
+            this.btnPrecent.Click += new System.EventHandler(this.BtnPrecent_Click);
             // 
             // btnBS
             // 
@@ -505,7 +676,7 @@
             this.btnBS.TabIndex = 34;
             this.btnBS.Text = "←";
             this.btnBS.UseVisualStyleBackColor = false;
-            this.btnBS.Click += new System.EventHandler(this.btnBS_Click);
+            this.btnBS.Click += new System.EventHandler(this.BtnBS_Click);
             // 
             // btnAC
             // 
@@ -525,7 +696,7 @@
             this.btnAC.TabIndex = 33;
             this.btnAC.Text = "AC";
             this.btnAC.UseVisualStyleBackColor = false;
-            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
+            this.btnAC.Click += new System.EventHandler(this.BtnAC_Click);
             // 
             // btnPi
             // 
@@ -546,7 +717,7 @@
             this.btnPi.TabIndex = 37;
             this.btnPi.Text = "π";
             this.btnPi.UseVisualStyleBackColor = false;
-            this.btnPi.Click += new System.EventHandler(this.btnPi_Click);
+            this.btnPi.Click += new System.EventHandler(this.BtnPi_Click);
             // 
             // btnSqrt
             // 
@@ -567,7 +738,7 @@
             this.btnSqrt.TabIndex = 38;
             this.btnSqrt.Text = "√X";
             this.btnSqrt.UseVisualStyleBackColor = false;
-            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
+            this.btnSqrt.Click += new System.EventHandler(this.BtnSqrt_Click);
             // 
             // btnLg
             // 
@@ -588,7 +759,7 @@
             this.btnLg.TabIndex = 39;
             this.btnLg.Text = "lg";
             this.btnLg.UseVisualStyleBackColor = false;
-            this.btnLg.Click += new System.EventHandler(this.btnLg_Click);
+            this.btnLg.Click += new System.EventHandler(this.BtnLg_Click);
             // 
             // btnLn
             // 
@@ -609,7 +780,7 @@
             this.btnLn.TabIndex = 40;
             this.btnLn.Text = "ln";
             this.btnLn.UseVisualStyleBackColor = false;
-            this.btnLn.Click += new System.EventHandler(this.btnLn_Click);
+            this.btnLn.Click += new System.EventHandler(this.BtnLn_Click);
             // 
             // btnRBrace
             // 
@@ -630,7 +801,7 @@
             this.btnRBrace.TabIndex = 41;
             this.btnRBrace.Text = ")";
             this.btnRBrace.UseVisualStyleBackColor = false;
-            this.btnRBrace.Click += new System.EventHandler(this.btnRBrace_Click);
+            this.btnRBrace.Click += new System.EventHandler(this.BtnRBrace_Click);
             // 
             // btnLBrace
             // 
@@ -651,7 +822,7 @@
             this.btnLBrace.TabIndex = 42;
             this.btnLBrace.Text = "(";
             this.btnLBrace.UseVisualStyleBackColor = false;
-            this.btnLBrace.Click += new System.EventHandler(this.btnLBrace_Click);
+            this.btnLBrace.Click += new System.EventHandler(this.BtnLBrace_Click);
             // 
             // panelHis
             // 
@@ -663,7 +834,7 @@
             this.panelHis.Name = "panelHis";
             this.panelHis.Size = new System.Drawing.Size(323, 168);
             this.panelHis.TabIndex = 44;
-            this.panelHis.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelHis_Scroll);
+            this.panelHis.Scroll += new System.Windows.Forms.ScrollEventHandler(this.PanelHis_Scroll);
             // 
             // labelHis
             // 
@@ -728,6 +899,7 @@
             this.Controls.Add(this.btnCos);
             this.Controls.Add(this.btnSin);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(125)))), ((int)(((byte)(130)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCal";
             this.ShowIcon = false;
@@ -735,43 +907,8 @@
             this.Text = "工程计算器";
             this.panelHis.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSin;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btn3;
-        private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.Button btn1;
-        private System.Windows.Forms.Button btnCos;
-        private System.Windows.Forms.Button btnMinus;
-        private System.Windows.Forms.Button btn6;
-        private System.Windows.Forms.Button btn5;
-        private System.Windows.Forms.Button btn4;
-        private System.Windows.Forms.Button btnTan;
-        private System.Windows.Forms.Button btnMult;
-        private System.Windows.Forms.Button btn9;
-        private System.Windows.Forms.Button btn8;
-        private System.Windows.Forms.Button btn7;
-        private System.Windows.Forms.Button btnE;
-        private System.Windows.Forms.Button btnEqual;
-        private System.Windows.Forms.Button btnDot;
-        private System.Windows.Forms.Button btn0;
-        private System.Windows.Forms.Button btnDivi;
-        private System.Windows.Forms.Button btnPrecent;
-        private System.Windows.Forms.Button btnBS;
-        private System.Windows.Forms.Button btnAC;
-        private System.Windows.Forms.Button btnPi;
-        private System.Windows.Forms.Button btnSqrt;
-        private System.Windows.Forms.Button btnLg;
-        private System.Windows.Forms.Button btnLn;
-        private System.Windows.Forms.Button btnRBrace;
-        private System.Windows.Forms.Button btnLBrace;
-        private System.Windows.Forms.Panel panelHis;
-        private System.Windows.Forms.Label labelHis;
-        private System.Windows.Forms.Label inputBox;
     }
 }
-
